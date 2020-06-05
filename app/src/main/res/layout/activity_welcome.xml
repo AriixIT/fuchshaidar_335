@@ -9,50 +9,58 @@
     <TextView
         android:id="@+id/willkommen"
         android:layout_width="0dp"
-        android:layout_height="165dp"
-        android:layout_marginTop="14dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="78dp"
+        android:layout_marginBottom="34dp"
         android:text="@string/willkommen"
         android:textColor="#000000"
         android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonLogout"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="191dp"
-        android:layout_height="178dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="276dp"
         android:contentDescription="@string/pictureAltText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFirstnameWelcome"
         tools:srcCompat="@drawable/pfp" />
 
     <TextView
         android:id="@+id/textViewFirstnameWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="166dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="70dp"
         android:text="@string/vorname"
         android:textColor="@color/blackColor"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/willkommen"
-        app:layout_constraintEnd_toEndOf="@+id/textViewLastnameWelcome" />
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/textViewLastnameWelcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewLastnameWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="36dp"
         android:text="@string/nachname"
         android:textColor="@color/blackColor"
         android:textSize="30sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textViewFirstnameWelcome"
-        app:layout_constraintEnd_toEndOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/willkommen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewFirstnameWelcome" />
 
     <Button
         android:id="@+id/buttonLogout"

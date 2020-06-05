@@ -33,6 +33,12 @@ public class RegisterActivity extends AppCompatActivity {
     public void goToUploadPictureActivity(View view){
         if(dataIsValid()){
             Intent intent = new Intent (this, UploadPictureActivity.class);
+
+            intent.putExtra(getString(R.string.editTextVorname), editTextFirstname.getText().toString().trim());
+            intent.putExtra(getString(R.string.editTextNachname), editTextLastname.getText().toString().trim());
+            intent.putExtra(getString(R.string.editTextEmail), editTextEmailRegister.getText().toString().trim());
+            intent.putExtra(getString(R.string.editTextPassword), "" + editTextPasswordConfirm.getText().toString().trim().hashCode());
+
             startActivity(intent);
         }
     }

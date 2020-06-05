@@ -49,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
                 intent.putExtra(getString(R.string.editTextEmail), user.getEmail());
                 goToWelcomeActivity(intent);
             }
+        }else{
+            editTextEmail.setError("Passwort oder Email ist falsch");
         }
     }
 }

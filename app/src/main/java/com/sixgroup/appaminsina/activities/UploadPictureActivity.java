@@ -63,6 +63,7 @@ public class UploadPictureActivity extends AppCompatActivity {
     public void goToWelcomeActivity(View view){
         Intent intent = new Intent (this, WelcomeActivity.class);
         saveToDatabase(intent);
+
         startActivity(intent);
     }
 
@@ -87,16 +88,23 @@ public class UploadPictureActivity extends AppCompatActivity {
 
         ImageView image = findViewById(R.id.profilePic);
         Bitmap imageBitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+        byte[] img;
+        User user;
 
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
-        byte[] img = bos.toByteArray();
+        if(imageBitmap != null) {
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+            img = bos.toByteArray();
+            user = new User(firstName, lastName, email, password, img);
+        } else {
+            user = new User(firstName, lastName, email, password, null);
+        }
+
         intent.putExtra(getString(R.string.editTextEmail), email);
 
-        userDao.insertUser(new User(firstName, lastName, email, password, img));
+        userDao.insertUser(user);
 
 
     }
-
 
 }

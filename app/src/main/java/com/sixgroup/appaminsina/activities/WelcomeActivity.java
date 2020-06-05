@@ -30,7 +30,7 @@ public class WelcomeActivity extends AppCompatActivity {
         //creating TextViews for the first- and lastname
         TextView textViewFirstnameWelcome = findViewById(R.id.textViewFirstnameWelcome);
         TextView textViewLastnameWelcome = findViewById(R.id.textViewLastnameWelcome);
-        ImageView imageViewPicture = findViewById(R.id.profilePic);
+        ImageView imageViewPicture = findViewById(R.id.imageView);
         UserDao userDao;
 
         //set Dao
@@ -42,8 +42,10 @@ public class WelcomeActivity extends AppCompatActivity {
         User user = userDao.getByEmail(email);
 
         //set TextViews to the name of the logged in User
-        Bitmap bitmap = BitmapFactory.decodeByteArray(user.getImage(), 0, user.getImage().length);
-        imageViewPicture.setImageBitmap(bitmap);
+        if(user.getImage() != null) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(user.getImage(), 0, user.getImage().length);
+            imageViewPicture.setImageBitmap(bitmap);
+        }
         textViewFirstnameWelcome.setText(user.getVorname());
         textViewLastnameWelcome.setText(user.getNachname());
     }
